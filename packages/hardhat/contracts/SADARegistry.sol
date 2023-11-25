@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
+import "./ExternalValidation.sol";
+
 contract SADARegistry {
     struct Farmer {
         uint256 yieldSize;
@@ -10,11 +12,17 @@ contract SADARegistry {
     mapping(string => Farmer) public farmers;
 
     // Placeholder for the external validation function
-    function validateFarmer(string memory certificateNumber) external view returns (bool) {
-        // Implement the actual logic to validate the farmer against the external system
-        // For now, return true as a placeholder
-        return true;
-    }
+function validateFarmer(string memory certificateNumber) external view returns (bool) {
+    // Instantiate ExternalValidation
+    ExternalValidation externalValidation = new ExternalValidation();
+
+    // Call the mockValidateFarmer function from the instantiated class
+    bool isValid = externalValidation.mockValidateFarmer(certificateNumber);
+
+    // Return the validation result
+    return isValid;
+}
+
 
     // Method to get farmer information if validated
     function getFarmerInfo(string memory certificateNumber) external view returns (uint256, uint256) {
