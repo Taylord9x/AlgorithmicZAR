@@ -48,4 +48,21 @@ function validateFarmer(string memory certificateNumber) external view returns (
         // For now, return a placeholder message
         return "Display rewards for the farmer on the dashboard.";
     }
+    
+    // Method to calculate and reward farmer
+    function calculateAndRewardFarmer(string memory certificateNumber) external onlyOwner {
+        Farmer storage farmer = farmers[certificateNumber];
+        require(farmer.yieldSize > 0 && farmer.regenerationDuration > 0, "Invalid farmer");
+
+        // Calculate rewards
+        RewardsCalculator rewardsCalculator = new RewardsCalculator();
+        uint256 rewardAmount = rewardsCalculator.calculateFarmerRewards(farmer.yieldSize, farmer.regenerationDuration);
+
+        // Issue AgriZAR tokens to the farmer's wallet address
+        AgriZARIssuer agriZARIssuer = new AgriZARIssuer();
+        agriZARIssuer.issueAgriZAR(msg.sender, rewardAmount);
+
+        // Log the reward event
+        emit FarmerRewarded(msg.sender, rewardAmount);
+    }
 }
