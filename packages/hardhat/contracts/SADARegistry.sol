@@ -2,6 +2,8 @@
 pragma solidity ^0.8.19;
 
 import "./ExternalValidation.sol";
+import "./RewardsCalculator.sol";
+import "./AgriZARIssuer.sol";
 
 contract SADARegistry {
     struct Farmer {
@@ -12,16 +14,16 @@ contract SADARegistry {
     mapping(string => Farmer) public farmers;
 
     // Placeholder for the external validation function
-function validateFarmer(string memory certificateNumber) external view returns (bool) {
-    // Instantiate ExternalValidation
-    ExternalValidation externalValidation = new ExternalValidation();
+    function validateFarmer(string memory certificateNumber) external view returns (bool) {
+        // Instantiate ExternalValidation
+        ExternalValidation externalValidation = new ExternalValidation();
 
-    // Call the mockValidateFarmer function from the instantiated class
-    bool isValid = externalValidation.mockValidateFarmer(certificateNumber);
+        // Call the mockValidateFarmer function from the instantiated class
+        bool isValid = externalValidation.mockValidateFarmer(certificateNumber);
 
-    // Return the validation result
-    return isValid;
-}
+        // Return the validation result
+        return isValid;
+    }
 
 
     // Method to get farmer information if validated

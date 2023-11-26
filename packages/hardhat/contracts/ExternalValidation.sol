@@ -2,25 +2,13 @@
 pragma solidity ^0.8.19;
 
 import "./Ownable.sol";
-import "./ChainlinkClient.sol";
 
-contract ExternalValidation is Ownable, ChainlinkClient {
-    using Chainlink for Chainlink.Request;
-
-    // Placeholder for the mock server endpoint
-    string private constant MOCK_SERVER_URL = "https://your-mock-server.com";
-
-    // Placeholder for the Chainlink oracle address and jobId
-    address private constant ORACLE_ADDRESS = 0xAA1DC356dc4B18f30C347798FD5379F3D77ABC5b;
-    bytes32 private constant JOB_ID = "your-job-id";
-
+contract ExternalValidation is Ownable {
     // Event to log the validation result
     event FarmerValidated(bool isValid);
 
     // Constructor to set the owner
-    constructor() Ownable() {
-        setPublicChainlinkToken();
-    }
+    constructor() Ownable() {}
 
     // Method to validate farmer against the external system
     function validateFarmer(string memory certificateNumber) external onlyOwner {

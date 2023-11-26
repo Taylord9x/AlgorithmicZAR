@@ -6,6 +6,6 @@ contract RewardsCalculator {
     function calculateFarmerRewards(uint256 farmSize, uint256 regenerationDuration) external pure returns (uint256) {
         // Implement your logic to calculate rewards here
         // For now, return a placeholder value
-        return farmSize * regenerationDuration;
+        return (farmSize * regenerationDuration)/100;
     }
 }
