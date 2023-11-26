@@ -1,22 +1,11 @@
-# AlgorithmicZAR
-Algorithmic ZAR is a decentralized stablecoin project utilizing algorithmic mechanisms to maintain stability against the South African Rand (ZAR). The project consists of smart contracts for minting, burning, oracles for real-time data, and governance for protocol adjustments.
+# TerraGuard
 
-Code Structure
-![Code Structure](https://ibb.co/stY6rnz)
+Introducing TerraGuard: Revolutionizing Sustainable Agriculture with Blockchain Precision
 
-Smart Contracts
+TerraGuard harnesses the power of blockchain to transform agriculture, empowering farmers with unprecedented accuracy and transparency. Our decentralized application (DApp) seamlessly integrates with Celo's blockchain, ensuring data integrity and security.
 
-    AlgorithmicZAR.sol:
-        Main contract for algorithmic stablecoin.
+Farmers access our platform, utilizing a Chainlink-enabled oracle to validate regenerative farming practices. The magic happens as our Envio-powered indexer gathers real-time data, providing a comprehensive view of farm metrics. From size to sustainability, TerraGuard delivers precise insights.
 
-    Oracle.sol:
-        Contract for decentralized oracles providing real-time data.
+Tokenizing these achievements, farmers receive rewards that reflect their commitment to regenerative practices. With the Celo wallet integration, secure and instant transactions ensure that rewards reach farmers swiftly.
 
-    GovernanceToken.sol:
-        Contract for governance token.
-
-Deployment
-
-To deploy the smart contracts:
-    
-    truffle migrate --network <network_name>
+TerraGuard: Bridging the gap between sustainable farming and blockchain innovation, cultivating a greener future.
